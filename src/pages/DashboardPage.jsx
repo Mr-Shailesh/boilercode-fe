@@ -19,9 +19,14 @@ export default function DashboardPage() {
     <div className="dashboard">
       <nav className="dashboard-nav">
         <div className="nav-brand">Dashboard</div>
-        <button className="logout-button" onClick={handleLogout}>
-          Logout
-        </button>
+        <div className="nav-links" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <button className="book-link" onClick={() => navigate('/books')}>
+            Manage Books
+          </button>
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       </nav>
 
       <main className="dashboard-content">
