@@ -1,10 +1,10 @@
 "use client"
 
 import { Navigate } from "react-router-dom"
-import { useAuth } from "../context/AuthContext"
+import { useSelector } from "react-redux"
 
 export const ProtectedRoute = ({ children }) => {
-  const { user, loading } = useAuth()
+  const { user, loading } = useSelector((state) => state.auth)
 
   if (loading) {
     return (

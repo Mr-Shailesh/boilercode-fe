@@ -1,16 +1,18 @@
 "use client"
 
 import { useNavigate, Link } from "react-router-dom"
-import { useAuth } from "../context/AuthContext"
+import { useDispatch, useSelector } from "react-redux"
+import { register } from "../store/slices/authSlice"
 import { AuthForm } from "../components/AuthForm"
 import "./AuthPages.css"
 
 export default function RegisterPage() {
   const navigate = useNavigate()
-  const { register, loading, error } = useAuth()
+  const dispatch = useDispatch()
+  const { loading, error } = useSelector((state) => state.auth)
 
   const handleRegister = async (formData) => {
-    await register(formData.name, formData.email, formData.password, formData.confirmPassword)
+    await dispatch(register(formData)).unwrap()
     navigate("/dashboard")
   }
 

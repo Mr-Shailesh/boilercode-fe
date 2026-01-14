@@ -1,15 +1,17 @@
 "use client"
 
 import { useNavigate } from "react-router-dom"
-import { useAuth } from "../context/AuthContext"
+import { useDispatch, useSelector } from "react-redux"
+import { logout } from "../store/slices/authSlice"
 import "./DashboardPage.css"
 
 export default function DashboardPage() {
   const navigate = useNavigate()
-  const { user, logout } = useAuth()
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth)
 
   const handleLogout = () => {
-    logout()
+    dispatch(logout())
     navigate("/login")
   }
 
@@ -62,8 +64,8 @@ export default function DashboardPage() {
               <p>Your session is secured with JWT tokens stored in localStorage.</p>
             </div>
             <div className="feature-card">
-              <h3>User Context</h3>
-              <p>User data is managed globally using React Context API.</p>
+              <h3>Global State</h3>
+              <p>User data is managed globally using Redux Toolkit.</p>
             </div>
             <div className="feature-card">
               <h3>API Integration</h3>
