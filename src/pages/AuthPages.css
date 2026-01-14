@@ -1,0 +1,23 @@
+.auth-page {
+  position: relative;
+}
+
+.auth-footer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  font-size: 14px;
+}
+
+.auth-footer a {
+  color: white;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  opacity: 0.8;
+}
